@@ -9,7 +9,7 @@ from io import StringIO
 from pprint import pprint
 import numpy as np
 
-match_links_df = pd.read_csv('./data/match_links.csv')
+match_links_df = pd.read_csv('./data/raw_tables/match_links.csv')
 
 def scrape(url):
     
@@ -135,7 +135,7 @@ for i, url in tqdm(enumerate(urls), bar_format="{n_fmt}/{total_fmt} [{elapsed}]"
             {'link':url, 'index': i}
         )
 
-pd.DataFrame(raw_match_stat_list).to_csv('data/raw_match_stats.csv')
+pd.DataFrame(raw_match_stat_list).to_csv('data/raw_tables/raw_match_stats.csv')
 print(
     f"""
     {successful = }
@@ -143,6 +143,6 @@ print(
     """
 )
 driver.quit()
-pd.DataFrame(failed_list).to_csv('data/failed_list.csv',
+pd.DataFrame(failed_list).to_csv('data/raw_tables/failed_list.csv',
 index=False)
 

@@ -5,6 +5,5 @@ requests
 lxml
 html5lib
 tqdm
-rich
 tabulate
 icecream

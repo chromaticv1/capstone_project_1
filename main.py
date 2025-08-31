@@ -4,6 +4,10 @@ if 'raw_tables' not in os.listdir('data'): os.mkdir('data/raw_tables')
 if 'batting' not in os.listdir('data/raw_tables/'): os.mkdir('data/raw_tables/batting')
 if 'bowling' not in os.listdir('data/raw_tables/'): os.mkdir('data/raw_tables/bowling')
 if 'details' not in os.listdir('data/raw_tables/'): os.mkdir('data/raw_tables/details')
-from src import scrape_links
-from src import scorecard_scraper
+if 'player_tables' not in os.listdir('data'): os.mkdir('data/player_tables')
+if 'batting' not in os.listdir('data/player_tables'): os.mkdir('data/player_tables/batting')
+if 'bowling' not in os.listdir('data/player_tables'): os.mkdir('data/player_tables/bowling')
+#from src import scrape_links
+#from src import scorecard_scraper
 from src import match_stats_wrangler
+from src import player_stats_wrangler

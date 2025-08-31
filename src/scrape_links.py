@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from src.scrape_links_css_selectors import *
+from src.css_selectors.scrape_links_css_selectors import *
 from itertools import product
 from tqdm import tqdm
 
@@ -114,4 +114,4 @@ for pair in na_ml.keys():
         match_records.append(record)
 import pandas as pd
 match_links_df = pd.DataFrame(match_records)
-match_links_df.to_csv('./data/match_links.csv', index=False)
+match_links_df.to_csv('./data/raw_tables/match_links.csv', index=False)

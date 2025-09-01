@@ -69,4 +69,17 @@ for p in bowling_player_records.keys():
         .drop(columns=['Bowling']))
     p_df.to_csv(f'data/player_tables/bowling/{p}.csv')
 
+# PVP
+# Name, Run rate, Run variance, Run mean
+# Ball rate, Ball variance, ball mean
+#
+#
+#
+#
 
+# PVP BAT
+bat_comparative_records = []
+for p, p_df in batting_player_records.items():
+    df = pd.DataFrame(p_df)
+    #ic(df.columns)
+    if (df[df['B'].str.contains('-')].size>0): (df[df['B'].str.contains('-')])

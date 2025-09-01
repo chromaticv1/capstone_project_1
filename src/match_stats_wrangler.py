@@ -26,7 +26,7 @@ home_venues = [
     "Sylhet"
 ]
 output_columns = ['opponent', 'is_home', 'venue', 'bd_captain', 'bd_won', 'abandoned', 'bd_won_toss', 'bd_bat_first', 'player_of_the_match', 'bd_won_series',
-                    'date'
+                    'date', 'match_result'
                 ]
 
 # fix captain names
@@ -39,6 +39,9 @@ data.loc[:,'is_home'] = data.loc[:,'venue'].str.contains("|".join(home_venues))
 data.loc[:,'bd_won'] = (data.loc[:,'summary_result'].str.contains('Bangladesh won'))
 # abandon check
 data.loc[:,'abandoned'] = data.loc[:,'summary_result'].str.contains('won') != True
+data.loc[data['bd_won']!= True,'match_result'] = 'Bangladesh lost'
+data.loc[data['bd_won'],'match_result'] = 'Bangladesh won'
+data.loc[(data['abandoned']),'match_result'] = 'Abandoned game'
 # from raw nested tables
 for i in (range(data.shape[0])):
     details_df = collect_df('details', i)

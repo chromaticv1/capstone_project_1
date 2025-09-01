@@ -1,3 +1,5 @@
+
+"""USELESS
 import pandas as pd
 df = pd.read_csv('data/match_stats.csv')
 
@@ -26,3 +28,4 @@ for v in opponent_names:
     o['winrate']= None if o['total_played'] == 0 else o['total_won']/o['total_played']*100
     opponent_stats.append(o)
 pd.DataFrame(opponent_stats).to_csv('data/opponent_stats.csv')
+"""

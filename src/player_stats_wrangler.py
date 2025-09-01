@@ -82,4 +82,59 @@ bat_comparative_records = []
 for p, p_df in batting_player_records.items():
     df = pd.DataFrame(p_df)
     #ic(df.columns)
-    if (df[df['B'].str.contains('-')].size>0): (df[df['B'].str.contains('-')])
+    #remove -
+    for i in range(df.shape[0]):
+        for j in range(df.shape[1]):
+            if (df.iloc[i,j]) == '-': df.iloc[i,j] = 0
+    
+    run_std = (df['R'].astype(float).std())
+    run_median = (df['R'].astype(float).median())
+    run_max = (df['R'].astype(float).max())
+    fours_median = (df['4s'].astype(float).median())
+    sixes_median = (df['6s'].astype(float).median())
+    fours_max = (df['4s'].astype(float).max())
+    sixes_max = (df['6s'].astype(float).max())
+    #ic(f'{p = }, {i = }, {j = }, {balls_when_run_max= } {run_max= },')
+    bat_comparative_records.append(
+        {
+            'Name': p,
+            'run_median': run_median,
+            'run_std': run_std,
+            'run_max': run_max,
+            'fours_median': fours_median,
+            'sixes_median': sixes_median,
+            'fours_max': fours_max,
+            'sixes_max': sixes_max,
+        }
+    )
+
+pd.DataFrame(bat_comparative_records).to_csv('data/batting_comparison_table.csv')
+
+# PVP boll
+bowl_comparative_records = []
+for p, p_df in bowling_player_records.items():
+    df = pd.DataFrame(p_df)
+    #ic(df.columns)
+    #remove -
+    for i in range(df.shape[0]):
+        for j in range(df.shape[1]):
+            if (df.iloc[i,j]) == '-': df.iloc[i,j] = 0
+    
+    wicket_std = (df['W'].astype(float).std())
+    wicket_median = (df['W'].astype(float).median())
+    wicket_max = (df['W'].astype(float).max())
+    economy_median = (df['ECON'].astype(float).median())
+    economy_std = (df['ECON'].astype(float).std())
+    #ic(f'{p = }, {i = }, {j = }, {balls_when_run_max= } {run_max= },')
+    bowl_comparative_records.append(
+        {
+            'Name': p,
+            'wicket_std': wicket_std,
+            'wicket_median': wicket_median,
+            'wicket_max': wicket_max,
+            'economy_median': economy_median,
+            'economy_std': economy_std,
+        }
+    )
+
+pd.DataFrame(bowl_comparative_records).to_csv('data/bowling_comparison_table.csv')

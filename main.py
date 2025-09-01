@@ -11,10 +11,10 @@ for dir in required_dirs:
     Path.mkdir(
         Path(dir), parents=True, exist_ok= True
     )
-should_scrape_links, should_scrape_scorecards, should_do_wrangling = (False, False, True)
+should_scrape_links, should_scrape_scorecards, should_do_wrangling = (False, False, False)
 should_scrape_links = ('y' in input("Scrape links? y/[n]: ")) or False
 should_scrape_scorecards = ('y' in input("Scrape scorecards from those links? y/[n]: ")) or False
-should_do_wrangling = ('y' in input("Wrangle scraped data? y/[n]: ")) or True
+should_do_wrangling = ('y' in input("Wrangle scraped data? y/[n]: ")) or False
 
 if should_scrape_links:
     from src import scrape_links

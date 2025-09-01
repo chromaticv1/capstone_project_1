@@ -18,7 +18,8 @@ team_name_abbr = {
     'IRE': 'Ireland',
     'PAK': 'Pakistan',
     'NED': 'Netherlands',
-    'AUS': 'Australia'
+    'AUS': 'Australia',
+    'SL' : 'Sri Lanka'
 }
 home_venues = [
     "Mirpur",
